@@ -26,21 +26,25 @@
    int amari=BASE%num;
    
    
-   out.print(("・足し算")+"<br>"+(BASE)+("+")+(num)+("="));
+   out.print("・足し算"+"<br>"+BASE+"+"+num+"=");
    out.print((tasu)+"<br>"+"<br>");
    
-   out.print(("・引き算")+"<br>"+(BASE)+("-")+(num)+("="));
+   out.print("・引き算"+"<br>"+BASE+"-"+num+"=");
    out.print((hiku)+"<br>"+"<br>");
    
-   out.print(("・掛け算")+"<br>"+(BASE)+("*")+(num)+("="));
+   out.print("・掛け算"+"<br>"+BASE+"*"+num+"=");
    out.print((kake)+"<br>"+"<br>");
    
-   out.print(("・割り算")+"<br>"+(BASE)+("/")+(num)+("="));
+   out.print("・割り算"+"<br>"+BASE+"/"+num+"=");
    out.print((waru)+"<br>"+"<br>");
    
-   out.print(("・余り")+"<br>"+(BASE)+("%")+(num)+("="));
-   out.print(amari);
+   out.print("・余り"+"<br>"+BASE+"%"+num+"=");
+   out.print((amari)+"<br>");
    
+
+   out.print("<br>"+num++);
+   out.print("<br>"+(+num));
+  
 %>
    
     
