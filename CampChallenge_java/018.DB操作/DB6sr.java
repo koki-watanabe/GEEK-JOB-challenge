@@ -72,8 +72,10 @@ public class DB6sr extends HttpServlet {
                 System.out.println("接続にエラーが発生しました。" + e.toString());
             } finally {
                 try {
-                    c.close();
-                    System.out.println("接続を切断しました。");
+                    if (c != null) {
+                        c.close();
+                        System.out.println("接続を切断しました。");
+                    }
                 } catch (Exception e) {
                     System.out.println("エラーが発生しました。");
                 }
