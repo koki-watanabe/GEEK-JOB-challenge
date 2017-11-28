@@ -35,45 +35,47 @@ public class DB7sr extends HttpServlet {
             Connection c = null;
             PreparedStatement ps;
             ResultSet rs;
-            
+
             String url = "jdbc:mysql://localhost:8889/challenge_db";
             String user = "koki";
             String pass = "koki";
-            
-            try{
+
+            try {
                 Class.forName("com.mysql.jdbc.Driver").newInstance();
-                c = DriverManager.getConnection(url,user,pass);
-                
+                c = DriverManager.getConnection(url, user, pass);
+
                 ps = c.prepareStatement("update profiles set name = '松岡修造',age = 48,birthday = 19671106 where profilesID = 1");
                 ps.executeUpdate();
-                
+
                 ps = c.prepareStatement("select * from profiles");
                 rs = ps.executeQuery();
-                
-                while(rs.next()){
+
+                while (rs.next()) {
                     String id = rs.getString("profilesId");
                     String name = rs.getString("name");
                     String tel = rs.getString("tel");
                     String age = rs.getString("age");
                     String bd = rs.getString("birthday");
-                    
+
                     out.print("prifilesID:" + id + "name:" + name + "tel:" + tel
                             + "age:" + age + "birthday:" + bd + "<br>");
                 }
-                
+
                 c.close();
                 ps.close();
                 rs.close();
-                
-            }catch(SQLException sql_e){
+
+            } catch (SQLException sql_e) {
                 System.out.println("接続にエラーが発生しました。" + sql_e.toString());
-            }catch(Exception e){
+            } catch (Exception e) {
                 System.out.println("接続にエラーが発生しました。" + e.toString());
-            }finally{
-                try{
-                    c.close();
-                    System.out.println("接続を切断しました。");
-                }catch(Exception e){
+            } finally {
+                try {
+                    if (c != null) {
+                        c.close();
+                        System.out.println("接続を切断しました。");
+                    }
+                } catch (Exception e) {
                     System.out.println("エラーが発生しました。" + e.toString());
                 }
             }
