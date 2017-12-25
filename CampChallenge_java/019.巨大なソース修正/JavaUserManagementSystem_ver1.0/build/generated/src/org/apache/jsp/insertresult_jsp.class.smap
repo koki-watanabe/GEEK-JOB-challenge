@@ -1,0 +1,17 @@
+SMAP
+insertresult_jsp.java
+JSP
+*S JSP
+*F
++ 0 insertresult.jsp
+insertresult.jsp
+*L
+1,10:47
+10,10:57
+20,6:67,3
+26,4:85
+29,4:89
+32,3:93
+35:96,3
+36,2:99
+*E
